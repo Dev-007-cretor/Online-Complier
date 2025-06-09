@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>C++ Online Compiler</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --primary-dark: #357ABD;
+      --bg-gradient: linear-gradient(135deg, #dfe9f3, #ffffff);
+      --glass-bg: rgba(255, 255, 255, 0.75);
+      --border-glass: rgba(255, 255, 255, 0.3);
+      --output-bg: #1e1e1e;
+      --output-text: #00ff90;
+      --box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      padding: 40px 20px;
+      color: #333;
+      transition: background 0.5s ease-in-out;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--border-glass);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: var(--box-shadow);
+      transition: all 0.4s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 25px;
+      font-size: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    textarea {
+      width: 100%;
+      height: 320px;
+      font-family: 'Courier New', monospace;
+      font-size: 15px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      resize: vertical;
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 10px var(--primary-dark);
+      outline: none;
+    }
+
+    button {
+      display: block;
+      background: var(--primary);
+      color: white;
+      font-size: 17px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      margin: 20px auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: #444;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    pre {
+      background-color: var(--output-bg);
+      color: var(--output-text);
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 15px;
+      overflow-x: auto;
+      box-shadow: inset 0 0 10px #00000055;
+      transition: background-color 0.4s ease;
+    }
+
+    @media (max-width: 600px) {
+      textarea {
+        height: 200px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🖥️ C++ Online Compiler</h1>
+    <form action="/run" method="POST">
+      <textarea name="code"><%= code || `#include<iostream>\nusing namespace std;\nint main() {\n    cout << "Hello, World!";\n    return 0;\n}` %></textarea>
+        <textarea name="input" placeholder="Input here (optional)"></textarea>
+      <button type="submit">🚀 Compile & Run</button>
+    </form>
+
+    <h3>📤 Output:</h3>
+    <pre><%= output %></pre>
+  </div>
+</body>
+</html>

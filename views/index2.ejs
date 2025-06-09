@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JAVA Online Compiler</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --primary-dark: #357ABD;
+      --bg: #eef2f7;
+      --glass-bg: rgba(255, 255, 255, 0.6);
+      --border: rgba(255, 255, 255, 0.3);
+      --output-bg: #1e1e1e;
+      --output-text: #00ff90;
+      --shadow: rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #dae2f8, #d6a4a4);
+      color: #333;
+      padding: 40px 20px;
+      transition: background 0.6s ease;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px var(--shadow);
+      transition: all 0.4s ease;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 25px;
+      font-size: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    textarea {
+      width: 100%;
+      height: 320px;
+      font-family: 'Courier New', monospace;
+      font-size: 15px;
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      resize: vertical;
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 5px var(--primary);
+      outline: none;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      font-size: 17px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      margin: 20px auto;
+      cursor: pointer;
+      display: block;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: #333;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    pre {
+      background-color: var(--output-bg);
+      color: var(--output-text);
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 15px;
+      overflow-x: auto;
+      box-shadow: inset 0 0 10px #00000055;
+      transition: background-color 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+      textarea {
+        height: 200px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🖥️ JAVA Compiler</h1>
+    <form action="/Javarun" method="POST">
+      <textarea name="code"><%= code || `public class Main {
+  public static void main(String[] args) {
+    System.out.println("hello world");
+  }
+}` %></textarea>
+    <textarea name="input" placeholder="Input here (optional)"></textarea>
+      <button type="submit">🚀 Compile & Run</button>
+    </form>
+
+    <h3>📤 Output:</h3>
+    <pre><%= output %></pre>
+  </div>
+</body>
+</html>
